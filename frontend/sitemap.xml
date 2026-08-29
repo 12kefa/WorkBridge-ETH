@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- NOTE: replace workbridge-eth.example.com with your real deployed
+     domain once you know it (same placeholder used in index.html and
+     robots.txt). This is a single-page app today, so there's one <url>;
+     add more <url> blocks here if the app grows real sub-pages/routes. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://workbridge-eth.example.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

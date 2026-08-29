@@ -1,0 +1,142 @@
+/* WorkBridge ETH — shared styles for secondary pages (legal, about, etc.)
+   Design tokens copied from index.html's <style> block so these pages read
+   as the same site, not a bolted-on afterthought. index.html itself is
+   untouched — it keeps its own inline styles exactly as they were. */
+
+:root {
+    --primary: #6366f1;
+    --primary-light: #818cf8;
+    --primary-dark: #4f46e5;
+    --accent: #f59e0b;
+    --accent-light: #fbbf24;
+    --success: #10b981;
+    --danger: #ef4444;
+    --rose: #ec4899;
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-tertiary: #1a1a2e;
+    --bg-card: rgba(255,255,255,0.03);
+    --bg-glass: rgba(255,255,255,0.05);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #6b7d97;
+    --border: rgba(255,255,255,0.08);
+    --shadow-card: 0 8px 32px rgba(0,0,0,0.3);
+    --radius: 16px;
+    --radius-lg: 24px;
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+[data-theme="light"] {
+    --bg-primary: #fafafa;
+    --bg-secondary: #f0f0f5;
+    --bg-tertiary: #e8e8f0;
+    --bg-card: rgba(255,255,255,0.7);
+    --bg-glass: rgba(255,255,255,0.6);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #566178;
+    --border: rgba(0,0,0,0.08);
+    --shadow-card: 0 8px 32px rgba(0,0,0,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background 0.5s ease, color 0.5s ease;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif; }
+a { color: inherit; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--primary-light);
+    outline-offset: 2px;
+}
+
+/* ---------- Simple header ---------- */
+.simple-header {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 1200px; margin: 0 auto; padding: 24px 32px; width: 100%;
+}
+.simple-header .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.simple-header .logo img { width: 32px; height: 32px; border-radius: 8px; }
+.simple-header .logo span { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.125rem; color: var(--text-primary); }
+.simple-header .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500;
+    transition: var(--transition);
+}
+.simple-header .back-link:hover { color: var(--primary-light); }
+
+/* ---------- Article content ---------- */
+main.legal-content {
+    flex: 1;
+    max-width: 760px; margin: 0 auto; padding: 24px 32px 80px;
+    width: 100%;
+}
+main.legal-content .eyebrow {
+    color: var(--primary-light); font-weight: 600; font-size: 0.8125rem;
+    text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px;
+}
+main.legal-content h1 { font-size: clamp(2rem, 5vw, 2.75rem); font-weight: 700; margin-bottom: 12px; line-height: 1.15; }
+main.legal-content .updated { color: var(--text-muted); font-size: 0.875rem; margin-bottom: 40px; }
+main.legal-content h2 { font-size: 1.375rem; font-weight: 700; margin: 40px 0 14px; }
+main.legal-content h2:first-of-type { margin-top: 0; }
+main.legal-content p { color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px; font-size: 0.9375rem; }
+main.legal-content ul, main.legal-content ol { color: var(--text-secondary); line-height: 1.75; margin: 0 0 16px 1.25em; font-size: 0.9375rem; }
+main.legal-content li { margin-bottom: 8px; }
+main.legal-content strong { color: var(--text-primary); }
+main.legal-content a.inline-link { color: var(--primary-light); text-decoration: underline; text-underline-offset: 2px; }
+main.legal-content .callout {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 20px 24px; margin: 24px 0; font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7;
+}
+main.legal-content .callout strong { color: var(--text-primary); }
+
+/* ---------- Buttons (for CTA pages like Careers/Blog) ---------- */
+.btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border-radius: 100px; font-weight: 600; font-size: 0.875rem;
+    text-decoration: none; border: none; cursor: pointer; transition: var(--transition);
+    font-family: inherit;
+}
+.btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(99,102,241,0.35); }
+.btn-ghost { background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border); }
+.btn-ghost:hover { background: var(--bg-glass); }
+
+/* ---------- Footer (matches index.html's footer) ---------- */
+.footer { padding: 64px 32px 32px; border-top: 1px solid var(--border); margin-top: auto; }
+.footer-grid { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 48px; max-width: 1200px; margin: 0 auto 48px; }
+.footer-brand .logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.footer-brand .logo img { width: 28px; height: 28px; border-radius: 6px; }
+.footer-brand .logo span { font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
+.footer-brand p { color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6; max-width: 280px; }
+.footer-col h4 { font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; color: var(--text-primary); }
+.footer-col ul { list-style: none; margin: 0; }
+.footer-col li { margin-bottom: 12px; }
+.footer-col a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; transition: var(--transition); }
+.footer-col a:hover { color: var(--primary-light); }
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-bottom p { color: var(--text-muted); font-size: 0.875rem; }
+
+@media (max-width: 1024px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+    .simple-header { padding: 20px; }
+    main.legal-content { padding: 12px 20px 60px; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+}

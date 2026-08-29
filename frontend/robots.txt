@@ -1,0 +1,8 @@
+# WorkBridge ETH
+# NOTE: update the Sitemap URL below once you know your real deployed
+# domain (see the canonical/og:url placeholders in index.html — same deal).
+
+User-agent: *
+Allow: /
+
+Sitemap: https://workbridge-eth.example.com/sitemap.xml

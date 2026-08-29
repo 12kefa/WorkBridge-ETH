@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WorkBridge ETH</title>
+  <meta http-equiv="refresh" content="0; url=./index.html">
+  <script>
+    // GitHub Pages SPA trick: if someone hits a subpath, send them back to
+    // index.html with the path preserved as a hash so the page can route on it.
+    // e.g. /repo/jobs/123 → /repo/index.html#/jobs/123
+    (function () {
+      var l = window.location;
+      var path = l.pathname.replace(/\/index\.html$/, '/');
+      if (path !== l.pathname) {
+        l.replace(l.origin + path.replace(/\/+$/, '/') + 'index.html' + l.search + l.hash);
+      } else {
+        l.replace('./index.html' + l.search + l.hash);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <p>Loading WorkBridge ETH…</p>
+</body>
+</html>
