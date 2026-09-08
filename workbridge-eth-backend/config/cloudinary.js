@@ -22,3 +22,4 @@ const uploadToCloudinary = (buffer, folder = 'workbridge') => {
 };
 
 module.exports = { cloudinary, uploadToCloudinary };
+
